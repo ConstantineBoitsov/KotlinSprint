@@ -1,6 +1,6 @@
 package lesson_1
 
-fun main () {
+fun main() {
 
     val seconds = 6480
 
