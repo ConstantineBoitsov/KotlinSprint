@@ -9,7 +9,6 @@ fun main () {
     val remainedMinutes = minutes % 60 // остаток минут
     val hours = minutes / 60 // количество часов
 
-    print("Время, проведённое в космосе: ${"%02d".format(hours)}:${"%02d".format(remainedMinutes)}:" +
-            "${"%02d".format(remainedSeconds)}")
+    print(String.format("Время, проведённое в космосе: %02d:%02d:%02d", hours, remainedMinutes, remainedSeconds))
 
 }
