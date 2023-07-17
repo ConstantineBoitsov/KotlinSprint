@@ -1,6 +1,6 @@
 package lesson_1
 
-fun main () {
+fun main() {
 
     val length: ULong = 40_868_600_000u
     val age: UByte = 27u
