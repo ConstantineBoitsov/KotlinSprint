@@ -2,10 +2,9 @@ package lesson_2
 
 fun main() {
 
-    var grades = listOf<Int>(3, 4, 3, 5)
+    val grades = listOf(3, 4, 3, 5)
 
-    var sumOfGrades = 0f
-    grades.forEach {sumOfGrades += it}
+    val sumOfGrades = (grades.sum()).toFloat()
 
     print(String.format("Средний балл по английскому языку для класса: %.2f", sumOfGrades / grades.size))
 
