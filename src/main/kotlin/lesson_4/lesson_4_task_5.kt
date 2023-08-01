@@ -15,13 +15,21 @@ fun main() {
         if (shipCondition == REQUIRED_SHIP_DAMAGE) {
             if ((SHIP_CREW_MIN <= shipCrew) and (shipCrew <= SHIP_CREW_MAX)) {
                 print("Корабль может приступить к плаванию")
-            } else {print("Корабль не может приступить к плаванию")}
+            } else {
+                print("Корабль не может приступить к плаванию")
+            }
         } else if (shipCrew == SHIP_CREW_MAX) {
             if (weatherCondition == GOOD_WEATHER_CONDITION) {
                 print("Корабль может приступить к плаванию")
-            } else {print("Корабль не может приступить к плаванию")}
-        } else {print("Корабль не может приступить к плаванию")}
-    } else {print("Корабль не может приступить к плаванию")}
+            } else {
+                print("Корабль не может приступить к плаванию")
+            }
+        } else {
+            print("Корабль не может приступить к плаванию")
+        }
+    } else {
+        print("Корабль не может приступить к плаванию")
+    }
 
 }
 
