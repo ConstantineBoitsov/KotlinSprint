@@ -7,10 +7,27 @@ fun main() {
 
     Thread.sleep(secondsToCount * 1000)
 
-    when (secondsToCount.toInt() % 10) {
-        1 -> print("Прошла $secondsToCount секунда, спасибо за ожидание!")
-        2, 3, 4 -> print("Прошло $secondsToCount секунды, спасибо за ожидание!")
-        else -> print("Прошло $secondsToCount секунд, спасибо за ожидание!")
+    val endingToWordPassed = when (secondsToCount.toInt() % 10) {
+        1 -> {
+            "а"
+        }
+        else -> {
+            "о"
+        }
     }
+
+    val endingToWordSecond = when (secondsToCount.toInt() % 10) {
+        1 -> {
+            "a"
+        }
+        2, 3, 4 -> {
+            "ы"
+        }
+        else -> {
+            ""
+        }
+    }
+
+    print("Прошл$endingToWordPassed $secondsToCount секунд$endingToWordSecond, спасибо за ожидание!")
 
 }
