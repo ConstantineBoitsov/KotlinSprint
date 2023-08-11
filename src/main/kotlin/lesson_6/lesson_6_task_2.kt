@@ -7,6 +7,7 @@ fun main() {
 
     Thread.sleep(secondsToCount * 1000)
 
+    // ситуационные окончания для «прошло(а)» и «секунд(а/ы)»
     val endingToWordPassed = when (secondsToCount.toInt() % 10) {
         1 -> "а"
         else -> "о"
