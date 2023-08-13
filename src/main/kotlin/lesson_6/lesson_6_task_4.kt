@@ -1,7 +1,5 @@
 package lesson_6
 
-import kotlin.system.exitProcess
-
 fun main() {
 
     val randomNumber = (1..9).random()
@@ -15,7 +13,7 @@ fun main() {
         tryToGuess = readln().toInt()
         if (tryToGuess == randomNumber) {
             print("Это была великолепная игра!")
-            exitProcess(0)
+            return
         } else print("Неверно...\n\n")
     }
 
