@@ -1,7 +1,5 @@
 package lesson_6
 
-import kotlin.system.exitProcess
-
 fun main() {
 
     println(
@@ -25,7 +23,7 @@ fun main() {
 
     if (numberOfTries == 0) {
         println("В доступе отказано.")
-        exitProcess(0)
+        return
     }
 
     print(
@@ -40,39 +38,37 @@ fun main() {
     print("Пароль: ")
     val registeredPassword = readln()
 
+    println("\nРегистрация прошла успешно!\n")
+
     print(
         """
-        Регистрация прошла успешно!
-        
         Для авторизации введите логин и пароль. 
         
         Логин: """.trimIndent()
     )
 
     var typedLogin = readln()
-    while (typedLogin != registeredLogin) {
+
+    print("Пароль: ")
+    var typedPassword = readln()
+
+    while ((typedLogin != registeredLogin) or (typedPassword != registeredPassword)) {
         print(
             """
-            Такой логин не найден.
+                
+            Неверный логин или пароль.
             
             Логин: """.trimIndent()
         )
         typedLogin = readln()
-    }
 
-    print("Пароль: ")
-    var typedPassword = readln()
-    while (typedPassword != registeredPassword) {
         print(
             """
-            Неверный пароль.
-            
-            Пароль: 
-        """.trimIndent()
+            Пароль: """.trimIndent()
         )
         typedPassword = readln()
     }
 
-    print("Авторизация прошла успешно!")
+    print("\nАвторизация прошла успешно!")
 
 }
