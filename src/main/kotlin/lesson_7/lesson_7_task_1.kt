@@ -9,7 +9,6 @@ fun main() {
     val symbolFive = ('a'..'z').random()
     val symbolSix = (1..9).random().toString()
 
-    println("Сгенерированный пароль: ${symbolOne + symbolTwo + 
-        symbolThree + symbolFour + symbolFive + symbolSix}")
+    println("Сгенерированный пароль: $symbolOne$symbolTwo$symbolThree$symbolFour$symbolFive$symbolSix")
 
 }
