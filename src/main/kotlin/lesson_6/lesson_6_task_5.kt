@@ -11,12 +11,12 @@ fun main() {
 
     var numberOfTries = 3
 
-    loop@ while (numberOfTries > 0) {
+    while (numberOfTries > 0) {
         val firstRandomNumber = (1..9).random()
         val secondRandomNumber = (1..9).random()
         print("Решите простую задачу: $firstRandomNumber + $secondRandomNumber = ")
         if (readln().toInt() == (firstRandomNumber + secondRandomNumber)) {
-            break@loop
+            break
         } else println("Неверно.")
         numberOfTries--
     }
