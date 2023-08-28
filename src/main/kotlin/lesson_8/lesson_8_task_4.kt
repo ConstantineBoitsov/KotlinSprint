@@ -7,23 +7,23 @@ fun main() {
     println("Ингредиенты весёлого порошка: ${theFunPowderRecipe.joinToString(", ", "", ".")}")
 
     print("Какой ингредиент вы хотели бы заменить? ")
-    var ingredientToSwap = readln()
+    var ingredientToSwap: String
 
-    while (ingredientToSwap !in theFunPowderRecipe) {
-        print(
-            """
-            Такого ингредиента нет, попробуйте ещё раз. """.trimIndent()
-        )
+    do {
         ingredientToSwap = readln()
-    }
+    } while (ingredientToSwap !in theFunPowderRecipe)
+
+//    print("Какой ингредиент вы хотели бы зменить? ")
+//    var ingredientToSwap = readln()
+
+//    while (ingredientToSwap !in theFunPowderRecipe) {
+//        print("Такого ингредиента нет, попробуйте ещё раз. ")
+//        ingredientToSwap = readln()
+//    }
 
     print("На что его заменить? ")
     theFunPowderRecipe[theFunPowderRecipe.indexOf(ingredientToSwap)] = readln()
 
-    println(
-        """
-        Успешно!
-        Ингредиенты весёлого порошка: ${theFunPowderRecipe.joinToString(", ", "", ".")}""".trimIndent()
-    )
+    println("Готово!\nВы сохранили следующий список: ${theFunPowderRecipe.joinToString(", ", "", ".")}")
 
 }
