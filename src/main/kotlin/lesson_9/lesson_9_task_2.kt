@@ -2,17 +2,17 @@ package lesson_9
 
 fun main() {
 
-    val funPowderRecipe: MutableList<String> = mutableListOf("сироп вишнёвый", "смешное слово", "шоколадка")
+    val funPowderRecipeList: MutableList<String> = mutableListOf("сироп вишнёвый", "смешное слово", "шоколадка")
 
-    println("В рецепте есть базовые ингредиенты: ${funPowderRecipe.joinToString("\n", "\n")}")
+    println("В рецепте есть базовые ингредиенты: ${funPowderRecipeList.joinToString("\n", "\n")}")
 
     print("Желаете добавить ещё? ")
     val desireToAdd = readln()
     if (desireToAdd.equals("да", true)) {
         print("Какой ингредиент вы хотите добавить? ")
-        funPowderRecipe.add(readln())
+        funPowderRecipeList.add(readln())
     } else return
 
-    println("\nТеперь в рецепте есть следующие ингредиенты: ${funPowderRecipe.joinToString("\n", "\n")}")
+    println("\nТеперь в рецепте есть следующие ингредиенты: ${funPowderRecipeList.joinToString("\n", "\n")}")
 
 }
