@@ -8,7 +8,7 @@ fun main() {
 
     print("Желаете добавить ещё? ")
     val desireToAdd = readln()
-    if ((desireToAdd == "да") or (desireToAdd == "Да")) {
+    if (desireToAdd.equals("да", true)) {
         print("Какой ингредиент вы хотите добавить? ")
         funPowderRecipe.add(readln())
     } else return
