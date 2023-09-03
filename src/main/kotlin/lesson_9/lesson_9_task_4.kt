@@ -13,13 +13,15 @@ fun main() {
         printedIngredients = readln()
         ingredientsList = listOf(*printedIngredients.split(", ").toTypedArray())
 
-        if (ingredientsList.size == 5) {
+        if (ingredientsList.size == requiredListSize) {
             val sortedList = ingredientsList.sorted().joinToString(", ")
             println("Список ингредиентов по алфавиту: $sortedList")
         } else {
             println("Некорректный ввод")
         }
 
-    } while (ingredientsList.size != 5)
+    } while (ingredientsList.size != requiredListSize)
 
 }
+
+const val requiredListSize = 5
