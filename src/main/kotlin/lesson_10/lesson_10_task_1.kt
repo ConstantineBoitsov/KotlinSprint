@@ -10,7 +10,7 @@ fun main() {
     println("Компьютер бросил кубики, выпало ${computersDice[0]} и ${computersDice[1]}")
     Thread.sleep(1000) // ЕЩЁ САСПЕНС
 
-    when(computersDice.sum() - humansDice.sum()) {
+    when (computersDice.sum() - humansDice.sum()) {
         in -1 downTo -10 -> print("Победило человечество! Цивилизация была возрождена!")
         0 -> print("Ничья! Война человечества и машин продолжается!")
         in 1..10 -> print("Победила машина! Человечество было стёрто с лица земли!")
