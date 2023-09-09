@@ -11,16 +11,16 @@ fun main() {
         loginToCheck = readln()
         print("Пароль: ")
         passwordToCheck = readln()
-        if (!isValidLength(loginToCheck, passwordToCheck)) {
+        if (!validateLength(loginToCheck, passwordToCheck)) {
             println("Логин или пароль надостаточно длинные")
         }
-    } while (!isValidLength(loginToCheck, passwordToCheck))
+    } while (!validateLength(loginToCheck, passwordToCheck))
 
     println("Добро пожаловать!")
 
 }
 
-fun isValidLength(login: String, password: String): Boolean =
+fun validateLength(login: String, password: String): Boolean =
     (login.length >= MIN_LOGIN_OR_PASSWORD_LENGTH) and (password.length >= MIN_LOGIN_OR_PASSWORD_LENGTH)
 
 const val MIN_LOGIN_OR_PASSWORD_LENGTH = 4
