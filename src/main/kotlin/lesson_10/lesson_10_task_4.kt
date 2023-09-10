@@ -21,10 +21,10 @@ fun main() {
 
         do {
             desireToContinue = readln()
-            if (!validatingAnswer(desireToContinue)) {
+            if (!validateAnswer(desireToContinue)) {
                 print("Некорректный ответ! Да или Нет? ")
             }
-        } while (!validatingAnswer(desireToContinue))
+        } while (!validateAnswer(desireToContinue))
 
     } while (desireToContinue.equals(other = "да", ignoreCase = true))
 
@@ -69,4 +69,4 @@ fun playGameRound(roundNumber: Int): Int {
 
 fun throwDices(): List<Int> = listOf((0..6).random(), (0..6).random())
 
-fun validatingAnswer(answer: String) = (answer.equals("да", true) or answer.equals("нет", true))
+fun validateAnswer(answer: String) = (answer.equals("да", true) or answer.equals("нет", true))
