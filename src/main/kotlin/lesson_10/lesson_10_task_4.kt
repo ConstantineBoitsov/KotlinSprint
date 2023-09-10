@@ -13,7 +13,6 @@ fun main() {
         when (playGameRound(roundNumber++)) {
             1 -> humanityWinsCounter++
             -1 -> machinesWinsCounter++
-            else -> break
         }
 
         print("Хотите бросить кости ещё раз?\nВведите Да или Нет: ")
@@ -67,6 +66,6 @@ fun playGameRound(roundNumber: Int): Int {
 
 }
 
-fun throwDices(): List<Int> = listOf((0..6).random(), (0..6).random())
+fun throwDices(): List<Int> = listOf((1..6).random(), (1..6).random())
 
 fun validateAnswer(answer: String) = (answer.equals("да", true) or answer.equals("нет", true))
