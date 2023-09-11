@@ -11,11 +11,13 @@ fun main() {
 
 fun generatePassword(length: Int): String {
 
-    val charPool: List<Char> = ('0'..'9') + "!\"#\$%&'()*+,-./ ".toCharArray().toList()
+    var passwordLength = length
     var generatedPassword = ""
 
-    repeat(times = length) {
-        generatedPassword += charPool.random()
+    while (passwordLength > 0) {
+        generatedPassword += ('0'..'9').random()
+        passwordLength--
+        if (passwordLength-- > 0) generatedPassword += (' '..'/').random()
     }
 
     return generatedPassword
