@@ -25,7 +25,7 @@ class User(
     val login: String,
     val password: String,
     val email: String,
-) {}
+)
 
 fun printUserData(userNumber: Int, user: User) {
     println(
