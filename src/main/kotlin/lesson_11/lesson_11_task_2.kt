@@ -4,9 +4,9 @@ fun main() {
 
     val newUser = SuperUser(123, "DoomSlayer", "yoyoyo", "supermail@pisem.net")
 
-    newUser.setBio(newUser)
+    newUser.setBio()
     newUser.changePassword()
-    newUser.printUserData(1, newUser)
+    newUser.printUserData(1)
 
     newUser.mailToUser("Поздравляем с изменением пароля! Пользуйтесь новым с удовольствием!")
 
@@ -20,22 +20,22 @@ class SuperUser(
 ) {
     var bio: String = ""
 
-    fun printUserData(userNumber: Int, user: SuperUser) {
+    fun printUserData(userNumber: Int) {
         println(
             """
             User №$userNumber:
-            id: ${user.id}
-            login: ${user.login}
-            password: ${user.password}
-            email: ${user.email}
-            bio: ${user.bio}
+            id: $id
+            login: $login
+            password: $password
+            email: $email
+            bio: $bio
         
         """.trimIndent()
         )
     }
 
-    fun setBio(superUser: SuperUser) {
-        print("Введите информацию о пользователе ${superUser.login}: ")
+    fun setBio() {
+        print("Введите информацию о пользователе $login: ")
         bio = readln()
     }
 
