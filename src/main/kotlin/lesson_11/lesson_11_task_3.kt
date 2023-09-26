@@ -7,18 +7,18 @@ fun main() {
             cover = "joystick.jpg",
             name = "Gamers",
             memberList = listOf(
-                RoomMember("avatar.png", "BigBoy", RoomMember.UserStatus.TALKS.status),
-                RoomMember("picture.jpeg", "Caracal Cat", RoomMember.UserStatus.MIC_DISABLED.status),
-                RoomMember("animegirl.gif", "Spalding", RoomMember.UserStatus.USER_MUTED.status)
+                RoomMember("avatar.png", "BigBoy", RoomMemberStatus.TALKS),
+                RoomMember("picture.jpeg", "Caracal Cat", RoomMemberStatus.MIC_DISABLED),
+                RoomMember("animegirl.gif", "Spalding", RoomMemberStatus.USER_MUTED)
             )
         ),
         Room(
             cover = "brush.jpg",
             name = "Artists",
             memberList = listOf(
-                RoomMember("avatar1.jpg", "Floppa", RoomMember.UserStatus.MIC_DISABLED.status),
-                RoomMember("avatar2.jpg", "Salvador", RoomMember.UserStatus.USER_MUTED.status),
-                RoomMember("avatar3.jpg", "Bratishka", RoomMember.UserStatus.TALKS.status),
+                RoomMember("avatar1.jpg", "Floppa", RoomMemberStatus.MIC_DISABLED),
+                RoomMember("avatar2.jpg", "Salvador", RoomMemberStatus.USER_MUTED),
+                RoomMember("avatar3.jpg", "Bratishka", RoomMemberStatus.TALKS),
             )
         )
     )
@@ -34,15 +34,15 @@ class Room(
 class RoomMember(
     val userPicture: String,
     val nickname: String,
-    val status: String,
+    val status: RoomMemberStatus,
 ) {
-    enum class UserStatus(val status: String) {
-        TALKS("разговаривает"),
-        MIC_DISABLED("микрофон выключен"),
-        USER_MUTED("пользователь заглушен"),
-    }
-
     fun longClickOnAvatar(userPic: String) {
         println(nickname)
     }
+}
+
+enum class RoomMemberStatus(val status: String) {
+    TALKS("разговаривает"),
+    MIC_DISABLED("микрофон выключен"),
+    USER_MUTED("пользователь заглушен"),
 }
