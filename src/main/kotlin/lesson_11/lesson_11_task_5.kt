@@ -2,37 +2,56 @@ package lesson_11
 
 fun main() {
 
-    val actualForum = Forum
+    val actualForum = Forum()
 
-    val user1 = actualForum.createNewUser(login = "CoolGuy", password = "assword", email = "mymail@mail.ru")
-    val user2 = actualForum.createNewUser("Eminem", "secretword111", "pochta@pisem.net")
+    val user1 = actualForum.createNewUser(name = "CoolGuy")
+    val user2 = actualForum.createNewUser(name = "CoolerGuy")
 
+    actualForum.createNewMessage(authorId = actualForum.getUserId(user1), message = "Blah blah blah!!!")
+    actualForum.createNewMessage(actualForum.getUserId(user1), "Meheheh")
+
+    actualForum.createNewMessage(actualForum.getUserId(user2), "THIS CANNOT CONTINUE")
+    actualForum.createNewMessage(actualForum.getUserId(user2), "please do not the cat")
+
+    actualForum.printThread()
 
 }
 
-class Forum(
-//    public var usersTotal: Int = 0,
-    var chatLog: String = "",
-
-) {
+class Forum {
     // ФАБРИКА
     var usersTotal: Int = 0
+    var usersMutableList: MutableList<ForumUser> = mutableListOf()
+    var messagesMutableList: MutableList<ForumMessage> = mutableListOf()
 
-    companion object {
-//        private var usersTotal = 0
-        fun createNewUser(login: String, password: String, email: String): ForumUser {
-            return ForumUser(id = usersTotal, login = login, password = password, email = email)
+    fun createNewUser(name: String): ForumUser {
+        val newForumUser = ForumUser(userId = ++usersTotal, userName = name)
+        usersMutableList.add(newForumUser)
+        return newForumUser
+    }
+
+    fun getUserId(user: ForumUser): Int {
+        return user.userId
+    }
+
+    fun createNewMessage(authorId: Int, message: String) {
+        if (authorId in (1..usersTotal)) {
+            messagesMutableList.add(ForumMessage(authorId = authorId, message = message))
         }
     }
 
-    fun createNewMessage(authorId: Int, message: String): String {
-
+    fun printThread() {
+        messagesMutableList.forEach {
+            println("${usersMutableList[it.authorId - 1].userName}: ${it.message}")
+        }
     }
 }
 
 class ForumUser(
-    val id: Int,
-    val login: String,
-    var password: String,
-    val email: String,
+    val userId: Int,
+    val userName: String,
+)
+
+class ForumMessage(
+    val authorId: Int,
+    val message: String,
 )
