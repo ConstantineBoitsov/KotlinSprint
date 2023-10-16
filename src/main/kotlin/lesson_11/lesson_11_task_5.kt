@@ -7,11 +7,11 @@ fun main() {
     val user1 = actualForum.createNewUser(name = "CoolGuy")
     val user2 = actualForum.createNewUser(name = "CoolerGuy")
 
-    actualForum.createNewMessage(authorId = actualForum.getUserId(user1), message = "Blah blah blah!!!")
-    actualForum.createNewMessage(actualForum.getUserId(user1), "Meheheh")
+    actualForum.createNewMessage(authorId = user1.userId, message = "Blah blah blah!!!")
+    actualForum.createNewMessage(user1.userId, "Meheheh")
 
-    actualForum.createNewMessage(actualForum.getUserId(user2), "THIS CANNOT CONTINUE")
-    actualForum.createNewMessage(actualForum.getUserId(user2), "please do not the cat")
+    actualForum.createNewMessage(user2.userId, "THIS CANNOT CONTINUE")
+    actualForum.createNewMessage(user2.userId, "please do not the cat")
 
     actualForum.printThread()
 
@@ -24,24 +24,27 @@ class Forum {
     var messagesMutableList: MutableList<ForumMessage> = mutableListOf()
 
     fun createNewUser(name: String): ForumUser {
-        val newForumUser = ForumUser(userId = ++usersTotal, userName = name)
+        val newForumUser = ForumUser(userId = usersTotal++, userName = name)
         usersMutableList.add(newForumUser)
         return newForumUser
     }
 
-    fun getUserId(user: ForumUser): Int {
-        return user.userId
+    fun getUserNameById(userId: Int): String? {
+        return usersMutableList.firstOrNull { it.userId == userId }?.userName
     }
 
     fun createNewMessage(authorId: Int, message: String) {
-        if (authorId in (1..usersTotal)) {
+        if (authorId in (0..usersTotal)) {
             messagesMutableList.add(ForumMessage(authorId = authorId, message = message))
         }
     }
 
     fun printThread() {
         messagesMutableList.forEach {
-            println("${usersMutableList[it.authorId - 1].userName}: ${it.message}")
+//            message: ForumMessage ->
+//            println("${usersMutableList.firstOrNull { it.userId == message.authorId }?.userName}: ${message.message}")
+            message: ForumMessage ->
+            println("${getUserNameById(message.authorId)}: ${message.message}")
         }
     }
 }
