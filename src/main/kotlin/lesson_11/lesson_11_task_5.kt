@@ -40,10 +40,7 @@ class Forum {
     }
 
     fun printThread() {
-        messagesMutableList.forEach {
-//            message: ForumMessage ->
-//            println("${usersMutableList.firstOrNull { it.userId == message.authorId }?.userName}: ${message.message}")
-            message: ForumMessage ->
+        messagesMutableList.forEach { message: ForumMessage ->
             println("${getUserNameById(message.authorId)}: ${message.message}")
         }
     }
