@@ -14,9 +14,9 @@ class WeatherConditionsSuperAdvanced(
     _precipitationDuringTheDay: Boolean
 ) {
 
-    var dayTemperatureCelsiusScale = dayTemperatureKelvinScale - 273
-    var nightTemperatureCelsiusScale = nightTemperatureKelvinScale - 273
-    var precipitationDuringTheDay = _precipitationDuringTheDay
+    val dayTemperatureCelsiusScale = dayTemperatureKelvinScale - 273
+    val nightTemperatureCelsiusScale = nightTemperatureKelvinScale - 273
+    val precipitationDuringTheDay = _precipitationDuringTheDay
 
     fun printConditions() {
         println(
