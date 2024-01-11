@@ -20,10 +20,12 @@ fun main() {
 
             if (currentPhoneNumber == null) {
                 println("\nНекорректный номер телефона. Попробуйте ещё раз.\n")
+                break
             }
-        } while (currentPhoneNumber == null)
 
-        phoneBookMembersMutableList.add(PhoneBookUltraMember(currentName, currentPhoneNumber, currentCompany))
+            phoneBookMembersMutableList.add(PhoneBookUltraMember(currentName, currentPhoneNumber, currentCompany))
+        } while (true)
+
 
         var decisionToAddNewContact: String
         do {
