@@ -1,5 +1,7 @@
 package lesson_13
 
+import java.lang.Exception
+
 fun main() {
 
     try {
@@ -7,8 +9,8 @@ fun main() {
         println("Введите номер телефона Ryan Gosling из компании «Drive Inc.»")
         val phoneBookMember = PhoneBookAbsoluteMember("Ryan Gosling", readln().toLong(), "Drive Inc.")
     }
-    catch (e: NumberFormatException) {
-        println("NumberFormatException")
+    catch (e: Exception) {
+        println(e::class.simpleName)
     }
 
 }
