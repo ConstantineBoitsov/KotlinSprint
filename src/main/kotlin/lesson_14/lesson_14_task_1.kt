@@ -2,9 +2,10 @@ package lesson_14
 
 fun main() {
 
-    val linerShip = LinerShip(40, 100, 100)
-    val cargoShip = CargoShip(30, 500, linerShip.maxPassengers)
-    val icebreakerShip = IcebreakerShip(30, linerShip.carryingCapacity, 50, iceBreaking = true)
+    val linerShip = LinerShip(speed = 40, carryingCapacity = 100, maxPassengers = 100)
+    val cargoShip = CargoShip(speed = 30, carryingCapacity = 500, maxPassengers = linerShip.maxPassengers)
+    val icebreakerShip = IcebreakerShip(speed = 30, carryingCapacity = linerShip.carryingCapacity,
+        maxPassengers = 50, iceBreaking = true)
 
 }
 
@@ -19,15 +20,11 @@ class CargoShip(
     speed: Int,
     carryingCapacity: Int,
     maxPassengers: Int,
-) : LinerShip(speed, carryingCapacity, maxPassengers) {
-
-}
+) : LinerShip(speed, carryingCapacity, maxPassengers)
 
 class IcebreakerShip(
     speed: Int,
     carryingCapacity: Int,
     maxPassengers: Int,
     iceBreaking: Boolean,
-) : LinerShip(speed, carryingCapacity, maxPassengers, iceBreaking = true) {
-
-}
+) : LinerShip(speed, carryingCapacity, maxPassengers, iceBreaking = true)
