@@ -6,21 +6,24 @@ import kotlin.math.pow
 fun main() {
 
     val differentFiguresList: List<Figure> = listOf(
-        FigureRound(color = "black", radius = 15.3),
-        FigureRound("black", 3.14),
-        FigureRound("white", 3.488),
+        FigureRound(color = FigureColor.BLACK, radius = 15.3),
+        FigureRound(FigureColor.BLACK, 3.14),
+        FigureRound(FigureColor.WHITE, 3.488),
 
-        FigureRectangle(color = "white", height = 3.1, width = 5.312),
-        FigureRectangle("black", 8.39, 1.3),
-        FigureRectangle("white", 6.23, 9.64)
+        FigureRectangle(color = FigureColor.WHITE, height = 3.1, width = 5.312),
+        FigureRectangle(FigureColor.BLACK, 8.39, 1.3),
+        FigureRectangle(FigureColor.WHITE, 6.23, 9.64)
     )
 
     var blackFigurePerimeterSum = 0.0
     var whiteFigureAreaSum = 0.0
 
     differentFiguresList.forEach {
-        if (it.color == "black") blackFigurePerimeterSum += it.calculatePerimeter()
-        else whiteFigureAreaSum += it.calculateArea()
+        when (it.color) {
+            FigureColor.BLACK -> blackFigurePerimeterSum += it.calculatePerimeter()
+            FigureColor.WHITE -> whiteFigureAreaSum += it.calculateArea()
+            else -> println("Цвет из иных миров")
+        }
     }
 
     println(String.format("Сумма периметров всех чёрных фигур: %.2f\nСумма площадей всех белых фигур: %.2f",
@@ -29,14 +32,14 @@ fun main() {
 }
 
 abstract class Figure(
-    val color: String,
+    val color: FigureColor,
 ) {
     abstract fun calculateArea() : Double
     abstract fun calculatePerimeter() : Double
 }
 
 class FigureRound(
-    color: String,
+    color: FigureColor,
     val radius: Double,
 ) : Figure(color) {
 
@@ -51,7 +54,7 @@ class FigureRound(
 }
 
 class FigureRectangle(
-    color: String,
+    color: FigureColor,
     val height: Double,
     val width: Double,
 ) : Figure(color) {
@@ -64,4 +67,9 @@ class FigureRectangle(
         return (height + width) * 2
     }
 
+}
+
+enum class FigureColor {
+    WHITE,
+    BLACK
 }
