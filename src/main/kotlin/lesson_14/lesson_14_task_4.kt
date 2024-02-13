@@ -12,14 +12,8 @@ fun main() {
         )
     )
 
-    // динамический список имён спутников
-    val satelliteNamesMutableList = mutableListOf<String>()
-    planetTerra.satelliteList.forEach {
-        satelliteNamesMutableList.add(it.name)
-    }
-
     print("Название планеты: ${planetTerra.name}.\n" +
-            "Её сспутники: ${satelliteNamesMutableList.joinToString(separator = ", ", postfix = ".")}")
+            "Её спутники: ${planetTerra.satelliteList.joinToString(separator = ", ", postfix = ".") {it.name} }")
 
 }
 
@@ -34,14 +28,10 @@ class Planet(
     presenceOfAtmosphere: Boolean,
     isLandable: Boolean,
     val satelliteList: List<Satellite>,
-) : CelestialBody(name, presenceOfAtmosphere, isLandable) {
-
-}
+) : CelestialBody(name, presenceOfAtmosphere, isLandable)
 
 class Satellite(
     name: String,
     presenceOfAtmosphere: Boolean,
     isLandable: Boolean,
-) : CelestialBody(name, presenceOfAtmosphere, isLandable) {
-
-}
+) : CelestialBody(name, presenceOfAtmosphere, isLandable)
