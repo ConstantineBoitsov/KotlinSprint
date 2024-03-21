@@ -3,8 +3,8 @@ package lesson_15
 fun main() {
 
     val guitar = Instrument("Гитара", 5)
-    val strings = Components("Струны", 6)
-    val guitarBody = Components("Корпус гитары", 4)
+    val strings = Component("Струны", 6)
+    val guitarBody = Component("Корпус гитары", 4)
 
     guitar.searchForComponents(guitarBody)
     guitar.searchForComponents(strings)
@@ -13,7 +13,7 @@ fun main() {
 
 interface Searchable {
 
-    fun searchForComponents(components: Components) {
+    fun searchForComponents(components: Component) {
         println("Выполняется поиск")
     }
 
@@ -33,7 +33,7 @@ class Instrument(
 
 ) : Product(name, quantityInStock), Searchable
 
-class Components(
+class Component(
 
     name: String,
     quantityInStock: Int,
