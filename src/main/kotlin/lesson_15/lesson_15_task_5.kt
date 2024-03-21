@@ -4,14 +4,18 @@ fun main() {
 
     val truck1 = HeavyCar(serialNumber = 1234, currentPassengersAmount = 1, currentCargoWeight = 1)
     val truck2 = HeavyCar(serialNumber = 213, currentPassengersAmount = 3, currentCargoWeight = 2)
+    val truck3 = HeavyCar(serialNumber = 73, currentPassengersAmount = 1, currentCargoWeight = 1)
 
     val car1 = LightCar(serialNumber = 42, currentPassengersAmount = 3)
     val car2 = LightCar(serialNumber = 1, currentPassengersAmount = 5)
+    val car3 = LightCar(serialNumber = 4, currentPassengersAmount = 1)
 
     truck1.move()
     truck2.move()
+    truck3.move()
     car1.move()
     car2.move()
+    car3.move()
 
 }
 
