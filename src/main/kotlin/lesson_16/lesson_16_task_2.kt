@@ -16,10 +16,10 @@ class Circle(
 
 ) {
 
-    fun circleLength() = numberPi * radius.pow(2.0)
+    fun circleLength() = NUMBER_PI * radius.pow(2.0)
 
-    fun circleSquare() = 2 * numberPi * radius
+    fun circleSquare() = 2 * NUMBER_PI * radius
 
 }
 
-private const val numberPi = 3.14
+private const val NUMBER_PI = 3.14
