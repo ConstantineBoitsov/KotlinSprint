@@ -2,9 +2,9 @@ package lesson_16
 
 fun main() {
 
-    val userJackieChan = User()
+    val userJackieChan = User("Jackie Chan", "toothpick")
 
-    println("Login: Jackie Chan")
+    println("Login: ${userJackieChan.getLogin()}")
     do {
         print("Password: ")
         val result = userJackieChan.comparePassword(readln())
@@ -14,10 +14,18 @@ fun main() {
 
 }
 
-class User {
+class User(
 
-    private val login = "Jackie Chan"
-    private val password = "toothpick"
+    _login: String,
+    _password: String,
+
+) {
+
+    private val login = _login
+    private val password = _password
+
+    fun getLogin() = login
+    fun getPassword() = password
 
     fun comparePassword(typedPassword: String) = (typedPassword == password)
 
