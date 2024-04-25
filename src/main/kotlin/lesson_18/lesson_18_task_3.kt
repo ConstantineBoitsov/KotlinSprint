@@ -8,7 +8,7 @@ fun main() {
         TamagochiCat("Котик-меховой животик")
     )
 
-    tamagochiPetsList.forEach {it: Tamagochi ->
+    tamagochiPetsList.forEach { it: Tamagochi ->
         it.eat()
     }
 
