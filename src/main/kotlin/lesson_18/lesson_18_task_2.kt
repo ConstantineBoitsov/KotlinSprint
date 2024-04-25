@@ -8,7 +8,7 @@ fun main() {
         DiceEight()
     )
 
-    diceList.forEach {it: Dice ->
+    diceList.forEach { it: Dice ->
         it.rollDice()
     }
 
@@ -16,24 +16,25 @@ fun main() {
 
 abstract class Dice {
 
-    abstract fun rollDice()
+    abstract val numberOfFaces: Int
+
+    fun rollDice() {
+        println("На кубике d$numberOfFaces выпало: ${(1..numberOfFaces).random()}")
+    }
 
 }
 
 class DiceFour : Dice() {
-    override fun rollDice() {
-        println("На d4 выпало: ${(1..4).random()}")
-    }
+    override val numberOfFaces: Int
+        get() = 4
 }
 
 class DiceSix : Dice() {
-    override fun rollDice() {
-        println("На d6 выпало: ${(1..6).random()}")
-    }
+    override val numberOfFaces: Int
+        get() = 6
 }
 
 class DiceEight : Dice() {
-    override fun rollDice() {
-        println("На d8 выпало: ${(1..8).random()}")
-    }
+    override val numberOfFaces: Int
+        get() = 8
 }
