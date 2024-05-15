@@ -4,32 +4,18 @@ fun main() {
 
     val tShirt = Product(name = "Розовая футболка", id = 123, category = ProductCategory.CLOTHES)
     val blackPen = Product("Чёрная ручка", 42, ProductCategory.STATIONERY)
-    val stickersPack = Product("Набор наклеек", 241, ProductCategory.OTHERS)
+    val stickerPack = Product("Набор наклеек", 241, ProductCategory.OTHERS)
 
     tShirt.typeProductInfo()
     blackPen.typeProductInfo()
-    stickersPack.typeProductInfo()
+    stickerPack.typeProductInfo()
 
 }
 
 enum class ProductCategory {
-    CLOTHES {
-        override fun getCategory(): String {
-            return "Одежда"
-        }
-    },
-    STATIONERY {
-        override fun getCategory(): String {
-            return "Канцелярские товары"
-        }
-    },
-    OTHERS {
-        override fun getCategory(): String {
-            return "Разное"
-        }
-    };
-
-    abstract fun getCategory(): String
+    CLOTHES,
+    STATIONERY,
+    OTHERS
 }
 
 class Product(
@@ -38,6 +24,12 @@ class Product(
     private val category: ProductCategory,
 ) {
     fun typeProductInfo() {
-        println("Товар №$id\nНазвание: $name\nКатегория: ${category.getCategory()}\n")
+        println("Товар №$id\nНазвание: $name\nКатегория: ${getCategory()}\n")
+    }
+
+    private fun getCategory(): String = when(category) {
+        ProductCategory.CLOTHES -> "Одежда"
+        ProductCategory.STATIONERY -> "Канцелярия"
+        else -> "Разное"
     }
 }
