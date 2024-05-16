@@ -24,7 +24,7 @@ class Tank(
 
     fun switchAmmunitionType(newAmmunitionType: AmmunitionType) {
         ammunitionType = newAmmunitionType
-        println(ammunitionType.getAmmunitionColor())
+        println(getAmmunitionColor())
     }
 
     fun shoot() {
@@ -32,29 +32,18 @@ class Tank(
         else println("*БАХ* Нанесено ${ammunitionType.damage} единиц урона!")
     }
 
+    private fun getAmmunitionColor(): String = when(ammunitionType) {
+        AmmunitionType.BLUE -> "Танк заряжен синими патронами"
+        AmmunitionType.GREEN -> "Танк заряжен зелёными патронами"
+        AmmunitionType.RED -> "Танк заряжен красными патронами"
+        else -> "Танк разряжен"
+    }
+
 }
 
 enum class AmmunitionType(val damage: Int) {
-    BLUE(5) {
-        override fun getAmmunitionColor(): String {
-            return "Танк заряжен синими патронами"
-        }
-    },
-    GREEN(10) {
-        override fun getAmmunitionColor(): String {
-            return "Танк заряжен зелёными патронами"
-        }
-    },
-    RED(20) {
-        override fun getAmmunitionColor(): String {
-            return "Танк заряжен красными патронами"
-        }
-    },
-    NO_AMMO(0) {
-        override fun getAmmunitionColor(): String {
-            return "Танк разряжен"
-        }
-    };
-
-    abstract fun getAmmunitionColor(): String
+    BLUE(5),
+    GREEN(10),
+    RED(20),
+    NO_AMMO(0)
 }
