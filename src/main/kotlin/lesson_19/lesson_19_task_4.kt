@@ -20,7 +20,7 @@ fun main() {
 class Tank(
     val name: String,
 ) {
-    private var ammunitionType = AmmunitionType.NO_AMMO
+    private var ammunitionType: AmmunitionType? = null
 
     fun switchAmmunitionType(newAmmunitionType: AmmunitionType) {
         ammunitionType = newAmmunitionType
@@ -28,11 +28,11 @@ class Tank(
     }
 
     fun shoot() {
-        if (ammunitionType == AmmunitionType.NO_AMMO) println("*ЩЁЛК* Боезапас пуст!")
-        else println("*БАХ* Нанесено ${ammunitionType.damage} единиц урона!")
+        if (ammunitionType == null) println("*ЩЁЛК* Боезапас пуст!")
+        else println("*БАХ* Нанесено ${ammunitionType?.damage} единиц урона!")
     }
 
-    private fun getAmmunitionColor(): String = when(ammunitionType) {
+    private fun getAmmunitionColor (): String = when(ammunitionType) {
         AmmunitionType.BLUE -> "Танк заряжен синими патронами"
         AmmunitionType.GREEN -> "Танк заряжен зелёными патронами"
         AmmunitionType.RED -> "Танк заряжен красными патронами"
@@ -44,6 +44,5 @@ class Tank(
 enum class AmmunitionType(val damage: Int) {
     BLUE(5),
     GREEN(10),
-    RED(20),
-    NO_AMMO(0)
+    RED(20)
 }
