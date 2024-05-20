@@ -10,18 +10,18 @@ fun main() {
         "Bow-wow!",
     )
 
-    val lambdify: (String) -> Unit = { it: String ->
-        println("Нажат элемент «${it}»")
+    val lambdify = { it: String ->
+        { println("Нажат элемент «${it}»") }
     }
 
-    val listOfLambda: List<(String) -> Unit> = listOfString.map {
-        lambdify
+    val listOfLambda = listOfString.map {
+        lambdify(it)
     }
 
-    listOfLambda.forEach { it }
-
-//    for (i in 1..<listOfLambda.size step 2) {
-//        listOfLambda[i]
-//    }
+    listOfLambda.forEachIndexed { index, function ->
+        if ((index + 1) % 2 == 0) {
+            function.invoke()
+        }
+    }
 
 }
