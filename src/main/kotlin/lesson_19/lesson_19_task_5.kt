@@ -15,7 +15,7 @@ fun main() {
         gender.equals(other = "жен", ignoreCase = true)
     }
 
-    do {
+    while (cardIndexList.size < 5) {
         println("Введите имя и пол человека в формате [Имя, муж/жен]")
         typedNameAndGender = readln()
         typedName = typedNameAndGender.split(", ")[0]
@@ -34,18 +34,20 @@ fun main() {
                 )
             )
         }
-    } while (cardIndexList.size < 5)
+    }
 
     println("Список людей в картотеке: ")
     for (i in cardIndexList) {
-        println("${i.name}, пол ${i.gender.sex}")
+        i.typeInfo()
     }
 }
 
 class Person(
     val name: String,
     val gender: Gender,
-)
+) {
+    fun typeInfo() = println("$name, пол $gender")
+}
 
 enum class Gender(val sex: String) {
     MALE("мужской") {
