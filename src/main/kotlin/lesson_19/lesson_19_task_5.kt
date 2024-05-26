@@ -43,8 +43,8 @@ fun main() {
 }
 
 class Person(
-    val name: String,
-    val gender: Gender,
+    private val name: String,
+    private val gender: Gender,
 ) {
     fun typeInfo() = println("$name, пол $gender")
 }
