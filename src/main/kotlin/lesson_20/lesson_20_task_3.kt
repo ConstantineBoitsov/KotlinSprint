@@ -2,14 +2,14 @@ package lesson_20
 
 fun main() {
 
-    val isTheKeyFound: (Player) -> Unit = { player: Player ->
+    val isTheKeyFound: (PlayerDoorOpener) -> Unit = { player: PlayerDoorOpener ->
         when (player.keyStatus) {
             KeyStatus.YES -> println("Игрок открыл дверь.")
             KeyStatus.NO -> println("Дверь заперта.")
         }
     }
 
-    val player1 = Player(keyStatus = KeyStatus.NO)
+    val player1 = PlayerDoorOpener(keyStatus = KeyStatus.NO)
     isTheKeyFound(player1)
 
     player1.findTheKey()
@@ -17,7 +17,7 @@ fun main() {
 
 }
 
-class Player(
+class PlayerDoorOpener(
     var keyStatus: KeyStatus,
 ) {
     fun findTheKey() {

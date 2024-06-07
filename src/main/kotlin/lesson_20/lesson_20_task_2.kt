@@ -2,12 +2,12 @@ package lesson_20
 
 fun main() {
 
-    val pickUpHealingPotion: (Player) -> Unit = { player: Player ->
+    val pickUpHealingPotion: (PlayerPotionDrinker) -> Unit = { player: PlayerPotionDrinker ->
         println("Подобрано лечебное зелье! Восстановлено ${player.maxHealth - player.currentHealth} очков здоровья!")
         player.currentHealth = player.maxHealth
     }
 
-    val player1 = Player(name = "Alistair", currentHealth = 100, maxHealth = 150)
+    val player1 = PlayerPotionDrinker(name = "Alistair", currentHealth = 100, maxHealth = 150)
     player1.typeHealth()
 
     pickUpHealingPotion(player1)
@@ -15,7 +15,7 @@ fun main() {
 
 }
 
-class Player(
+class PlayerPotionDrinker(
     val name: String,
     var currentHealth: Int,
     val maxHealth: Int,
